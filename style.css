@@ -1,0 +1,77 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: "Montserrat";
+}
+.bmi-container{
+    width: 90%;
+    max-width: 600px;
+    padding:.8rem;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+.bmi-text{
+    text-align: center;
+}
+.weight-input{
+    margin-bottom: 1em;
+}
+.weight-input, .height-input{
+    border-radius: .5em;
+}
+h1{
+    font-size: 2.5rem;
+}
+.inputs{
+    margin: 1em 0 1em 1.5em;
+}
+.inputs label{
+    display: block;
+    margin-bottom: 0.5em;
+    font-weight: 600;
+}
+.inputs input{
+    padding:.7em .5em;
+    width: 95%;
+    font-size: 1.2rem;
+}
+.btn{
+    text-align: center;
+    margin-top: 10px;
+}
+button{
+    border: none;
+    padding: 1em 1.5em;
+    margin-bottom: 0.9em;
+    font-size: 1rem;
+    border-radius: 5px;
+}
+button.calc{
+    background-color: rgb(70, 174, 70);
+    color: white;
+    margin-right: 1em;
+}
+button.check{
+    background-color: #4a90e2;
+    color: white;
+}
+button.check:active, button.calc:active{
+    scale: 0.95;
+}
+button.check:hover{
+    background-color: #3a7bc8;
+    cursor: pointer;
+}
+button.calc:hover{
+    background-color: rgb(59, 149, 59);
+    cursor: pointer;
+}
+#message, #result{
+    font-size: 1.35rem;
+}
