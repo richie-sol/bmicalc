@@ -20,6 +20,7 @@ buttonEl.addEventListener("click", function(){
             resultEl.innerHTML = `<p>Enter a valid number</p>`
         }
         else{
+            height = Number(height) / 100
             const bmi = Number(weight) / (Number(height) * Number(height))
             
             if(bmi < 18.5){

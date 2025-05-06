@@ -19,6 +19,34 @@ body{
 .bmi-text{
     text-align: center;
 }
+.bmi-description{
+    font-size: .9rem;
+    font-style: italic;
+}
+.links{
+    text-align: center;
+    margin-top: 10px;
+}
+a.pounds{
+    background-color:#022B3A ;
+}
+a.cm{
+    background-color:#48435C ;
+}
+.kg{
+    background-color:#5A5766 ;
+}
+a{
+    text-decoration: none;
+    color: white;
+    background-color: black;
+    padding: 0.4em 0.8em;
+    display: inline-block;
+    border-radius: 5px;
+    font-size: .7rem;
+    margin-top: .7em;
+    margin-bottom: .7em;
+}
 .weight-input{
     margin-bottom: 1em;
 }
@@ -26,7 +54,8 @@ body{
     border-radius: .5em;
 }
 h1{
-    font-size: 2.5rem;
+    font-size: 1.9rem;
+    margin-bottom: .5em;
 }
 .inputs{
     margin: 1em 0 1em 1.5em;

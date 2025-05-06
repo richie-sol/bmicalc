@@ -15,19 +15,23 @@
             <h1>What is your BMI?🤔</h1>
             <p class="bmi-description">Your BMI is a measurement that uses your weight and height to estimate your body fat.</p>
         </div>
+        <div class="links">
+            <a class="pounds" href="pounds.html">lbs/(ft/inch)</a>
+            <a class="kg" href="">kg/(ft/inch)</a>
+        </div>
         <div class="inputs">
             <div class="weight-input">
                 <label for="weigth">Weight(kg)</label>
                 <input id="weight" type="number" placeholder="30" required name="weight">
             </div>
             <div class="height-input">
-                <label for="height">Height(m)</label>
-                <input id="height" type="number" placeholder="1.8" required name="height">
+                <label for="height">Height(cm)</label>
+                <input id="height" type="number" placeholder="175" required name="height">
             </div>
         </div>
         <div class="btn">
             <button class="calc" id="calculate">Calculate</button>
-            <button class="check" id="reset">Check Again</button>
+            <button class="check" id="reset">Clear</button>
         </div>
         <p id="result"></p>
         <p id="message"></p>
