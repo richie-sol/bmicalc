@@ -21,7 +21,7 @@
             margin-right: 1.8em;
         }
     </style>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/style.css">
 </head>
 <body>
     <section class="bmi-container">
@@ -29,10 +29,14 @@
             <h1>What is your BMI?🤔</h1>
             <p class="bmi-description">Your BMI is a measurement that uses your weight and height to estimate your body fat.</p>
         </div>
+        <div class="links">
+            <a class="pounds" href="/page1/index.html">kg/cm</a>
+            <a class="kg" href="/page2/pounds.html">lbs/(ft-in)</a>
+        </div>
         <div class="inputs">
             <div class="weight-input">
-                <label for="weigth">Pounds(lbs)</label>
-                <input id="weight" type="number" placeholder="180" required name="weight">
+                <label for="weigth">Weight(kg)</label>
+                <input id="weight" type="number" placeholder="80" required name="weight">
             </div>
             <div class="height-input">
                 <label for="height">Height(feet/inches)</label>
@@ -76,7 +80,8 @@
                 alert("Enter a valid number")
             }else{
                 let height = (Number(feetValue) * 12) + Number(inchValue)
-                let bmi = (Number(weight) / (height * height)) * 703
+                let bmi = (Number(weight) / (height / 39.37) ** 2)
+
                 if(bmi < 18.5){
                     displayMessage(`<p>Your BMI is: <b style="color:#12A0DC">${bmi.toFixed(1)}</b></p>`)
                     messageEl.innerHTML = `<p>You are <b style="color:#12A0DC">underweight</b>😢</p>`

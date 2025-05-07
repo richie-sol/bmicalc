@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&family=Happy+Monkey&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Karla:ital,wght@0,200..800;1,200..800&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Lexend+Deca:wght@100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Outfit:wght@100..900&family=Overlock:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&family=Overpass:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Sora:wght@100..800&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/js-confetti@latest/dist/js-confetti.browser.js"></script>
+    <title>BMI Calculator</title>
+    <style>
+        #height1{
+            margin-top: 1em;
+            
+        }
+        #height, #height1{
+            width: 40%;
+            
+        }
+        #height{
+            margin-right: 1.8em;
+        }
+    </style>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <section class="bmi-container">
+        <div class="bmi-text">
+            <h1>What is your BMI?🤔</h1>
+            <p class="bmi-description">Your BMI is a measurement that uses your weight and height to estimate your body fat.</p>
+        </div>
+        <div class="links">
+            <a class="pounds" href="/page1/index.html">kg/cm</a>
+            <a class="kg" href="/page3/kilo.html">kg/(ft-in)</a>
+        </div>
+        <div class="inputs">
+            <div class="weight-input">
+                <label for="weigth">Weight(lbs)</label>
+                <input id="weight" type="number" placeholder="180" required name="weight">
+            </div>
+            <div class="height-input">
+                <label for="height">Height(feet/inches)</label>
+               
+             <input id="height" type="number" placeholder="5" required name="height"><input id="height1" type="number" placeholder="10" required name="height">
+                    
+                
+            </div>
+        </div>
+        <div class="btn">
+            <button class="calc" id="calculate">Calculate</button>
+            <button class="check" id="reset">Clear</button>
+        </div>
+        <p id="result"></p>
+        <p id="message"></p>
+    
+    </section>
+
+    <script>
+
+        const jsConfetti = new JSConfetti()
+        const weightEl = document.getElementById("weight")
+        const feetEl = document.getElementById("height")
+        const inchEl = document.getElementById("height1")
+        const calcEl = document.getElementById("calculate")
+        const reset = document.getElementById("reset")
+
+        const resultEl = document.getElementById("result")
+        const messageEl = document.getElementById("message")
+
+        function displayMessage(message){
+            return resultEl.innerHTML = message
+        }
+
+        calcEl.addEventListener("click", function(){
+            let weight = weightEl.value
+            let feetValue = feetEl.value
+            let inchValue = inchEl.value
+
+            if(!weight || !feetValue || !inchValue){
+                alert("Enter a valid number")
+            }else{
+                let height = (Number(feetValue) * 12) + Number(inchValue)
+                let bmi = (Number(weight) / (height * height)) * 703
+                if(bmi < 18.5){
+                    displayMessage(`<p>Your BMI is: <b style="color:#12A0DC">${bmi.toFixed(1)}</b></p>`)
+                    messageEl.innerHTML = `<p>You are <b style="color:#12A0DC">underweight</b>😢</p>`
+                }else if(bmi >= 18.5 && bmi < 25){
+                    
+                    displayMessage(`<p>Your BMI is: <b style="color:#11BD1F">${bmi.toFixed(1)}</b></p>`)
+                    messageEl.innerHTML = `<p>You have a <b style="color:#11BD1F">healthy weight</b>, that's great 🙌🏽</p>`
+                    jsConfetti.addConfetti()
+                }else if(bmi >= 25 && bmi < 30){
+                    displayMessage(`<p>Your BMI is: <b style="color:#901E1E">${bmi.toFixed(1)}</b></p>`)
+                    messageEl.innerHTML = `<p>You are <b style="color:#901E1E">overweight</b>😢</p>`
+                }else if(bmi >= 30){
+                    displayMessage(`<p>Your BMI is: <b style="color:#BD2626">${bmi.toFixed(1)}</b></p>`)
+                    messageEl.innerHTML = `<p>You are <b style="color:#BD2626">obese</b>, you need to hit the gym🏋🏽‍♂️ 😔</p>`
+                    
+                }
+                
+            }
+        })
+
+        reset.addEventListener("click", function(){
+            weightEl.value = " "
+            feetEl.value = " "
+            resultEl.innerHTML = " "
+            inchEl.value = " "
+            messageEl.innerHTML = " "
+        })
+
+
+    </script>
+</body>
+</html>
