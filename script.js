@@ -1,4 +1,9 @@
 
+
+const jsConfetti = new JSConfetti()
+
+
+
 const weightEl = document.getElementById("weight")
 const heightEl = document.getElementById("height")
 const resultEl = document.getElementById("result")
@@ -30,6 +35,7 @@ buttonEl.addEventListener("click", function(){
                 
                 displayMessage(`<p>Your BMI is: <b style="color:#11BD1F">${bmi.toFixed(1)}</b></p>`)
                 messageEl.innerHTML = `<p>You have a <b style="color:#11BD1F">healthy weight</b>, that's great 🙌🏽</p>`
+                jsConfetti.addConfetti()
             }else if(bmi >= 25 && bmi < 30){
                 displayMessage(`<p>Your BMI is: <b style="color:#901E1E">${bmi.toFixed(1)}</b></p>`)
                 messageEl.innerHTML = `<p>You are <b style="color:#901E1E">overweight</b>😢</p>`
@@ -43,8 +49,8 @@ buttonEl.addEventListener("click", function(){
 })
 
 resetEl.addEventListener("click", function(){
-    weightEl.value = " "
-    heightEl.value = " "
-    resultEl.innerHTML = " "
-    messageEl.innerHTML = " "
+    weightEl.value = ""
+    heightEl.value = ""
+    resultEl.innerHTML = ""
+    messageEl.innerHTML = ""
 })
